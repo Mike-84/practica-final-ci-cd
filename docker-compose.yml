@@ -1,0 +1,75 @@
+version: '3.1'
+services:
+  jenkins:
+    build: .
+    # environment:
+    #   - JENKINS_HOME="/jenkins-data"
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - data-volume:/var/jenkins_home
+      # Linux
+      # - /usr/bin/docker:/usr/bin/docker
+      # MacOS
+      # - /usr/local/bin/:/usr/share/bin
+      # - /var/run/docker.sock:/var/run/docker.sock
+
+      # Volume del TF
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    extra_hosts:
+      - "mike:192.168.0.21"
+    depends_on:
+      - nexus
+    environment:
+      - NEXUS_PORT=8081
+
+
+
+  nexus:
+    image: sonatype/nexus3
+    restart: always
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+    volumes:
+      - nexus-data:/nexus-data
+    extra_hosts:
+      - "mike:192.168.0.21"
+
+  # jenkins:
+  #   image: jenkins/jenkins:lts
+  #   restart: always
+  #   ports:
+  #     - "18080:8080"
+  #   networks:
+  #     - prodnetwork
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #     - /usr/local/bin/docker:/usr/bin/docker
+  #     - jenkins-data:/var/lib/jenkins/
+  #   depends_on:
+  #     - nexus
+  #   environment:
+  #     - NEXUS_PORT=8081
+
+  # nexus:
+  #   image: sonatype/nexus3
+  #   restart: always
+  #   ports:
+  #     - "8081:8081"
+  #     - "8082:8082"
+  #   volumes:
+  #     - nexus-data:/nexus-data
+  #   extra_hosts:
+  #     - "mike:192.168.0.21"
+
+
+volumes:
+  data-volume:
+  nexus-data:
+  gitlab-config:
+  gitlab-logs:
+  gitlab-data:
+  gitlab-runner:
