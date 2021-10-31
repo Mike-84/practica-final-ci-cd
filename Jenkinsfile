@@ -97,12 +97,12 @@ pipeline {
                 script {
                     sh '''
                     cd backend
-                    docker build --no-cache -t backend-test -f Dockerfile.test ."
+                    docker build --no-cache -t backend-test -f Dockerfile.test .
+                    docker run -i --name backend-test backend-test
+                    docker cp backend-test:/app/test_results.xml ./test_results.xml
+                    docker rm backend-test
+                    cat test_results.xml
                     '''
-                    sh "docker run -i --name backend-test backend-test"
-                    sh "docker cp backend-test:/app/test_results.xml ./test_results.xml"
-                    sh "docker rm backend-test"
-                    sh "cat test_results.xml"
                 }
             }
         }
