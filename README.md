@@ -62,7 +62,7 @@
   pip install virtualenv
   ```
 
-     - Una vez levantado el contenedor realizamos un los siguientes comandos:
+  - Una vez levantado el contenedor realizamos un los siguientes comandos:
 
   ```
   virtualenv .env -p python3
@@ -70,7 +70,7 @@
   pip install -r requirements.txt
   behave
   ```
-     - Al realizar estos comandos nos saldrá un mensaje:
+  - Al realizar estos comandos nos saldrá un mensaje:
 
   ```
      Feature: shopping ACME stuff # features/shopping.feature:1
