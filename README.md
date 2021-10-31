@@ -62,17 +62,17 @@
   pip install virtualenv
   ```
 
-     - Una vez levantado el contenedor realizamos un `docker-compose -f logs` y los siguientes comandos:
+     - Una vez levantado el contenedor realizamos un los siguientes comandos:
 
-     ```
-     virtualenv .env python3
-     . .env/bin/activate
-     pip install -r requirements.txt
-     behave
-     ```
-     - Al realizar estos comandos en los logs nos saldrá un mensaje:
+  ```
+  virtualenv .env -p python3
+  . .env/bin/activate
+  pip install -r requirements.txt
+  behave
+  ```
+     - Al realizar estos comandos nos saldrá un mensaje:
 
-     ```
+  ```
      Feature: shopping ACME stuff # features/shopping.feature:1
 
      Background: go to main site  # features/shopping.feature:3
@@ -100,7 +100,7 @@
      1 feature passed, 0 failed, 0 skipped
      5 scenarios passed, 0 failed, 0 skipped
      10 steps passed, 0 failed, 0 skipped, 0 undefined
-     ```
+  ```
 
 ## Cosas a mejorar o que faltan
 
@@ -112,3 +112,4 @@
 ## Cosas que he hecho para la práctica final
 
    - Para que al final realizase esta práctica estuve probando con dos repositorios independientes, propios, uno de [frontend](https://gitkc.cloud/Mike/prueba-jenkins-frontend-local) y otro de [backend](https://gitkc.cloud/Mike/prueba-jenkins-backend-local) y en ambos hay alguna imagen de todos los intentos que he tenido para que el Jenkinsfile funcionase.
+   
