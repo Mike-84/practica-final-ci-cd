@@ -54,9 +54,15 @@
   - Debido a que el Jenkins es en local no se puede vincular a la cuenta de gitlab en la nube entonces no se realiza el test del jenkinsfile de frma automática pero si se quedan guardados los commits, solo hay que darle a build now.
 
 
-  - Para realizar el test behave hay que hacerlo manualmente dentro de la carpeta integration y realizar un `docker-compose up -d` para levantar la página con su base de datos aquí se requiere el chromedriver y virtualenv y un `docker-compose -f logs`
+  - Para realizar el test behave hay que hacerlo manualmente dentro de la carpeta integration y realizar un `docker-compose up -d` para levantar la página con su base de datos aquí se requiere tener el chromedriver y virtualenv, si no tienes virtualenv instaldo sigue los siguientes pasos:
 
-     - Una vez levantado el contenedor realizamos los siguientes comandos:
+  ```
+  sudo apt install python3
+  sudo apt-get install -y python3-pip
+  pip install virtualenv
+  ```
+
+     - Una vez levantado el contenedor realizamos un `docker-compose -f logs` y los siguientes comandos:
 
      ```
      virtualenv .env python3
@@ -66,8 +72,8 @@
      ```
      - Al realizar estos comandos en los logs nos saldrá un mensaje:
 
-   ```
-   Feature: shopping ACME stuff # features/shopping.feature:1
+     ```
+     Feature: shopping ACME stuff # features/shopping.feature:1
 
      Background: go to main site  # features/shopping.feature:3
 
@@ -91,10 +97,10 @@
        Given We are in the main site                              # features/steps/shopping.py:6 0.077s
        Then We want to buy a "cohete" with "coyote@acme.es" email # features/steps/shopping.py:23 2.952s
 
-   1 feature passed, 0 failed, 0 skipped
-   5 scenarios passed, 0 failed, 0 skipped
-   10 steps passed, 0 failed, 0 skipped, 0 undefined
-   ```
+     1 feature passed, 0 failed, 0 skipped
+     5 scenarios passed, 0 failed, 0 skipped
+     10 steps passed, 0 failed, 0 skipped, 0 undefined
+     ```
 
 ## Cosas a mejorar o que faltan
 
