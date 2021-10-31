@@ -105,4 +105,4 @@
 
 ## Cosas que he hecho para la práctica final
 
-   - Para que al final realizase esta práctica estuve probando con dos repositorios independientes uno de [frontend](https://gitkc.cloud/Mike/prueba-jenkins-frontend-local) y otro de [backend](https://gitkc.cloud/Mike/prueba-jenkins-backend-local) y en ambos hay alguna imagen de todos los intentos que he tenido para que el Jenkinsfile funcionase.
+   - Para que al final realizase esta práctica estuve probando con dos repositorios independientes, propios, uno de [frontend](https://gitkc.cloud/Mike/prueba-jenkins-frontend-local) y otro de [backend](https://gitkc.cloud/Mike/prueba-jenkins-backend-local) y en ambos hay alguna imagen de todos los intentos que he tenido para que el Jenkinsfile funcionase.
