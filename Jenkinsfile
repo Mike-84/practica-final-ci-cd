@@ -95,14 +95,12 @@ pipeline {
         stage('Backend: test unitarios') {
             steps {
                 script {
-                    sh '''
-                    cd backend
-                    docker build --no-cache -t backend-test -f Dockerfile.test .
-                    docker run -i --name backend-test backend-test
-                    docker cp backend-test:/app/test_results.xml ./test_results.xml
-                    docker rm backend-test
-                    cat test_results.xml
-                    '''
+                    sh "cd backend"
+                    sh "docker build --no-cache -t backend-test -f Dockerfile.test ."
+                    sh "docker run -i --name backend-test backend-test"
+                    sh "docker cp backend-test:/app/test_results.xml ./test_results.xml"
+                    sh "docker rm backend-test"
+                    sh "cat test_results.xml"
                 }
             }
         }
@@ -118,22 +116,6 @@ pipeline {
               }
             }
         }
-
-        stage('Prueba integration behave'){
-            steps {
-                script {
-                    sh '''
-                    cd integration
-                    virtualenv .env -p python3
-                    . .env/bin/activate
-                    pip install -r requirements.txt
-                    behave
-                    '''
-                }
-            }
-        }
-
-    }
 
     post {
         cleanup {
