@@ -62,12 +62,11 @@
      virtualenv .env python3
      . .env/bin/activate
      pip install -r requirements.txt
-
      behave
      ```
      - Al realizar estos comandos en los logs nos saldrá un mensaje:
 
-     ```
+  ```
    Feature: shopping ACME stuff # features/shopping.feature:1
 
      Background: go to main site  # features/shopping.feature:3
@@ -95,7 +94,7 @@
    1 feature passed, 0 failed, 0 skipped
    5 scenarios passed, 0 failed, 0 skipped
    10 steps passed, 0 failed, 0 skipped, 0 undefined
-     ```
+  ```
 
 ## Cosas a mejorar o que faltan
 
